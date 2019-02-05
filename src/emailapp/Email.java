@@ -1,11 +1,14 @@
 package emailapp;
 
+import java.util.Scanner;
+
 public class Email {
 	
 	private String firstName;
 	private String lastName;
 	private String password;
 	private String department;
+	private int defaultPasswordLength = 10;
 	private int mailboxCapacity;
 	private String alternateEmail;
 
@@ -22,7 +25,12 @@ public class Email {
 		// call a method asking for the department & return the department
 		// private class department calls setDepartment method
 		this.department = setDepartment();
+		System.out.println("Department: " + this.department);
 
+
+		// call a method that sets a random password
+		this.password = randomPassword(defaultPasswordLength);
+		System.out.println("Password: " + this.password);
 
 	}
 
@@ -50,6 +58,29 @@ public class Email {
 
 	// Generate a random password
 
+	private String randomPassword(int length) {
+
+		String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%";
+
+		// to set password we will look at passwordSet as an array and from there
+		// select a charactor at any given index of that array
+
+	//  (vv char array  equals new char array that takes in the length param)
+		char[] password = new char[length];
+
+		// iterating through the value of length
+		for(int i = 0; i < length; i++) {
+
+			// selecting a random int and assigning it to the var 'rand'
+			int rand = (int) (Math.random() * passwordSet.length());
+
+			// in the var 'password' at position i = passwordSet. at char (rand)
+			password[i] = passwordSet.charAt(rand);
+		} 
+
+		return new String(password);
+	}
+
 	// Set the mailbox capacity
 
 	// Set the alternate email
@@ -58,3 +89,14 @@ public class Email {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
