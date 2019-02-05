@@ -8,9 +8,11 @@ public class Email {
 	private String lastName;
 	private String password;
 	private String department;
+	private String email;
 	private int defaultPasswordLength = 10;
 	private int mailboxCapacity;
 	private String alternateEmail;
+	private String companySuffix = "myCompany.com";
 
 
 	// Constructor to recieve first name and last name
@@ -32,6 +34,10 @@ public class Email {
 		this.password = randomPassword(defaultPasswordLength);
 		System.out.println("Password: " + this.password);
 
+
+		// combine elements to generate email
+		email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + companySuffix;
+		System.out.println("Your email is: " + email);
 	}
 
 	// Ask for the department
