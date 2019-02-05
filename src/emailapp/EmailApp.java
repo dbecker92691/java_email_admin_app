@@ -6,5 +6,9 @@ public class  EmailApp {
 
 		Email em1 = new Email("John", "Smith");
 
+
+		em1.setAltEmail("emailone@mail.com");
+		System.out.println(em1.getAlternateEmail());
+
 	}
 }
